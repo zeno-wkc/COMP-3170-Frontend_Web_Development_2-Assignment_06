@@ -121,6 +121,11 @@
   width: 50%;
 }
 
+.message {
+  text-align: left;
+  margin: 0 0 0 30px;
+}
+
 .country_content__container {
   display: flex;
   flex-direction: row;
