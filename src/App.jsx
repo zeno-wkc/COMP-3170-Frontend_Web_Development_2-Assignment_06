@@ -60,15 +60,15 @@ function App() {
     setSelectedContinent(''); 
   };
   
-  const getFilteredCountries = () => {
-    let filteredData = [...countryData];
-    if (selectedContinent) filteredData = filteredData.filter((country) => country.continents.includes(selectedContinent));
-    if (selectedSubregion) filteredData = filteredData.filter((country) => country.subregion === selectedSubregion);
-    if (isAlphaActive) filteredData.sort((a, b) => a.name.common.localeCompare(b.name.common));
-    if (isTopPopulation) filteredData.sort((a, b) => b.population - a.population).slice(0, 10);
-    if (isTopArea) filteredData.sort((a, b) => b.area - a.area).slice(0, 10);
-    return filteredData;
-  };
+const getFilteredCountries = () => {
+  let filteredData = [...countryData];
+  if (selectedContinent) filteredData = filteredData.filter((country) => country.continents.includes(selectedContinent));
+  if (selectedSubregion) filteredData = filteredData.filter((country) => country.subregion === selectedSubregion);
+  if (isAlphaActive) filteredData.sort((a, b) => a.name.common.localeCompare(b.name.common));
+  if (isTopPopulation) filteredData = filteredData.sort((a, b) => b.population - a.population).slice(0, 10);
+  if (isTopArea) filteredData = filteredData.sort((a, b) => b.area - a.area).slice(0, 10);
+  return filteredData;
+};
 
   const getBorderNames = (borders) => {
     return borders.map(code => countryCodeMap[code] || code).join(', ');
